@@ -36,7 +36,7 @@ const upRightIconSVG = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewB
 
 
 const Projects: FC = () => {
-  return <section className="section">
+  return <section className="section" id="projects">
     <div className="container !max-w-full">
       <h2 className="text-4xl md:text-7xl lg:text-8xl">Selected Works</h2>
       <div className="mt-10 md:mt-16 lg:mt-20">

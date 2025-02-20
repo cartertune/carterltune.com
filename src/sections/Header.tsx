@@ -51,29 +51,37 @@ const Header: FC = () => {
 
   useEffect(() => {
     if (isOpen) {
-      console.log('isOpen')
       topLineAnimate([[topLineScope.current, { translateY: 4 }], [topLineScope.current, { rotate: 45 }]])
       bottomLineAnimate([[bottomLineScope.current, { translateY: -4 }], [bottomLineScope.current, { rotate: -45 }]])
       navAnimate(navScope.current, { height: '100%' }, { duration: 0.7 })
     } else {
-      console.log('isClosed')
       topLineAnimate([[topLineScope.current, { rotate: 0 }], [topLineScope.current, { translateY: 0 }]])
       bottomLineAnimate([[bottomLineScope.current, { rotate: 0 }], [bottomLineScope.current, { translateY: 0 }]])
       navAnimate(navScope.current, { height: '0' }, { duration: 0.7 })
     }
   }, [isOpen, topLineAnimate, bottomLineAnimate, topLineScope, bottomLineScope, navAnimate, navScope])
 
+  const handleNavItemClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+    setIsOpen(false)
+    const element = document.getElementById(event.currentTarget.href.split('#')[1])
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return <header>
     <div className="fixed top-0 left-0 w-full h-0 overflow-hidden z-50 bg-stone-900" ref={navScope}>
       <nav className='mt-20 flex flex-col'>
         {navItems.map(({ label, href }) => (
-          <a href={href} className='text-stone-200 border-t last:border-b border-stone-800 py-8'>
+          <a href={href} key={label} onClick={handleNavItemClick} className='text-stone-200 border-t last:border-b border-stone-800 py-8 group/nav-item relative isolate'>
             <div className="container !max-w-full flex items-center justify-between">
-              <span className="text-3xl">
+              <span className="text-3xl group-hover/nav-item:pl-4 transition-all duration-500">
                 {label}
               </span>
               {upRightArrowSvg}
             </div>
+            <div className="absolute bottom-0 w-full h-0 bg-stone-800 group-hover/nav-item:h-full transition-all duration-500 -z-10" />
           </a>
         ))}
       </nav>

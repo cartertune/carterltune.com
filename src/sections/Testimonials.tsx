@@ -47,7 +47,7 @@ const arrowRightSvg = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBo
 const Testimonials: FC = () => {
   const testimonialIndex = 0
 
-  return <section className="section">
+  return <section className="section" id="testimonials">
     <h2 className="text-4xl md:text-7xl lg:text-8xl flex flex-col gap-4">
       <span className="whitespace-nowrap overflow-hidden">Some nice words from my past clients</span>
       <span className="whitespace-nowrap self-end text-red-orange-500">Some nice words from my past clients</span>
