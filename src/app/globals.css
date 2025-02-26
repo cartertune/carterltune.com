@@ -12,4 +12,5 @@
 
 .word {
   @apply translate-y-full;
+  line-height: 1.1;
 }
