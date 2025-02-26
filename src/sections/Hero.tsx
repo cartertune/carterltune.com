@@ -6,24 +6,24 @@ import heroImage from "@/assets/images/hero-image.jpeg";
 import Button from "@/components/Button";
 import SplitType from "split-type";
 import { useAnimate, motion, stagger, useScroll, useTransform } from "motion/react";
+import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
 
 const chevronDoubleDownSVG = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
 </svg>
 
 const Hero: FC = () => {
-  const [titleScope, titleAnimate] = useAnimate();
   const scrollingRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: scrollingRef, offset: ['start end', 'end end'] });
 
   // 240% = transition from 5 columns to 12 columns
   const portraitWidth = useTransform(scrollYProgress, [0, 1], ['100%', '240%']);
 
-  useEffect(() => {
-    new SplitType(titleScope.current, { types: 'words,lines', tagName: 'span' });
-    titleAnimate(titleScope.current.querySelectorAll('.word'), { transform: 'translateY(0)' }, { duration: .5, delay: stagger(0.2) })
+  const { scope: titleScope, entranceAnimation: titleAnimate } = useTextRevealAnimation()
 
-  }, [])
+  useEffect(() => {
+    titleAnimate()
+  }, [titleAnimate])
 
   return <section>
     <div className="grid md:grid-cols-12 md:h-screen items-stretch sticky top-0">
@@ -59,9 +59,7 @@ const Hero: FC = () => {
         </motion.div>
       </div>
     </div>
-    <div className="h-[200vh]" ref={scrollingRef}>
-
-    </div>
+    <div className="md:h-[200vh]" ref={scrollingRef} />
   </section>
 };
 

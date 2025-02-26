@@ -1,26 +1,24 @@
 'use client'
-import { stagger, useAnimate, useInView } from "motion/react";
-import { FC, useEffect } from "react";
-import SplitType from "split-type";
+import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
+import { useInView } from "motion/react";
+import { FC, useEffect, useRef } from "react";
 
 const Intro: FC = () => {
-  const [scope, animate] = useAnimate();
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const { scope, entranceAnimation, exitAnimation } = useTextRevealAnimation();
   const inView = useInView(scope, { once: true });
 
   useEffect(() => {
-    new SplitType(scope.current.querySelector('h2') as HTMLElement, { types: 'words,lines', tagName: 'span' });
-  }, [scope])
-
-
-  useEffect(() => {
     if (inView) {
-      animate(scope.current.querySelectorAll('.word'), { transform: 'translateY(0)' }, { duration: .5, delay: stagger(0.2) })
+      entranceAnimation()
     }
-  }, [inView, scope, animate])
+  }, [inView, entranceAnimation, exitAnimation])
 
-  return <section className="section mt-12 md:mt-16 lg:mt-20" id="intro" ref={scope}>
+
+  return <section className="section mt-12 md:mt-16 lg:mt-20" id="intro" ref={sectionRef}>
     <div className="container !max-w-full">
-      <h2 className="text-4xl md:text-7xl lg:text-8xl lg:w-[80%]">Building beautiful websites with clean code and thoughtful design to help your business grow and stand out online</h2>
+      <h2 className="text-4xl md:text-7xl lg:text-8xl lg:w-[80%]" ref={scope}>Building beautiful websites with clean code and thoughtful design to help your business grow and stand out online</h2>
     </div>
   </section>;
 };

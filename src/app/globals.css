@@ -8,9 +8,9 @@
 
 .line {
   @apply overflow-hidden;
+  line-height: 1.1;
 }
 
 .word {
   @apply translate-y-full;
-  line-height: 1.1;
 }
