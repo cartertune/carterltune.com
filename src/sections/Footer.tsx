@@ -51,7 +51,7 @@ const Footer: FC = () => {
           <div className="md:col-span-1">
             <nav className="flex flex-col md:items-end gap-8 mt-16">
               {navItems.map(({ href, label }) => {
-                return <a href={href} key={label}><Button variant="text" onClick={handleClickNavItem}>{label}</Button></a>
+                return <a href={href} key={label}><Button variant="text" onClick={() => handleClickNavItem(href)}>{label}</Button></a>
               })}
             </nav>
           </div>

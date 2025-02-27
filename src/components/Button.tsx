@@ -1,10 +1,11 @@
 import { ButtonHTMLAttributes, FC } from "react";
 import { twMerge } from "tailwind-merge";
+import { ReactNode } from "react";
 
-const Button: FC = (props: {
+const Button: FC<{
   variant: "primary" | "secondary" | "text";
   iconAfter?: ReactNode;
-} & ButtonHTMLAttributes<HTMLButtonElement>) => {
+} & ButtonHTMLAttributes<HTMLButtonElement>> = (props) => {
   const { children, className, variant, iconAfter, ...rest } = props;
 
 
