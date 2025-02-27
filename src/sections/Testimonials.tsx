@@ -1,39 +1,39 @@
 'use client';
 
 import { FC, useRef, useState } from "react";
-import image1 from "@/assets/images/testimonial-1.jpg";
-import image2 from "@/assets/images/testimonial-2.jpg";
-import image3 from "@/assets/images/testimonial-3.jpg";
+import noelleImg from "@/assets/images/noelle.jpeg";
+import panpanImg from "@/assets/images/panpan.jpeg";
+import harshalImg from "@/assets/images/harshal.jpeg";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import TestimonialCard from "@/components/TestimonialCard";
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 const testimonials = [
   {
-    name: "Sarah Chen",
-    company: "Pixel Perfect",
-    role: "Head of Design",
+    name: "Noelle Claessens",
+    company: "Pietra",
+    role: "Head of Engineering & Product",
     quote:
-      "Carter's expertise in both technical development and design created a beautiful, high-performing website.",
-    image: image1,
+      "Carter delivers high-quality, non-buggy code with minimal oversight and quicklytackles complex challenges",
+    image: noelleImg,
     imagePositionY: 0.2,
   },
   {
-    name: "Marcus Rodriguez",
-    company: "Craft Coffee Co.",
-    role: "Founder",
+    name: "Pan Pan",
+    company: "Pietra",
+    role: "Co-Founder & CTO",
     quote:
-      "Carter transformed our boutique coffee brand with a website that perfectly balances aesthetics and functionality.",
-    image: image2,
+      "Carter is a proactive engineer who quickly improves both product and infrastructure.",
+    image: panpanImg,
     imagePositionY: 0.1,
   },
   {
-    name: "Emily Watson",
-    company: "Studio Minimal",
-    role: "Creative Director",
+    name: "Harshal Singh",
+    company: "Troav",
+    role: "Co-Founder & CEO",
     quote:
-      "The collaborative process was amazing. Carter brought lots of fresh perspectives and innovative solutions.",
-    image: image3,
+      "A team player with a teaching spirit, always willing to help and mentor others.",
+    image: harshalImg,
     imagePositionY: 0.55,
   },
 ];
@@ -71,8 +71,8 @@ const Testimonials: FC = () => {
 
   return <section className="section" id="testimonials">
     <h2 className="text-4xl md:text-7xl lg:text-8xl flex flex-col gap-4" ref={titleRef}>
-      <motion.span className="whitespace-nowrap overflow-hidden" style={{ x: transformTop }}>Some nice words from my past clients</motion.span>
-      <motion.span className="whitespace-nowrap self-end text-red-orange-500" style={{ x: transformBottom }}>Some nice words from my past clients</motion.span>
+      <motion.span className="whitespace-nowrap overflow-hidden" style={{ x: transformTop }}>Some nice words from my past employers</motion.span>
+      <motion.span className="whitespace-nowrap self-end text-red-orange-500" style={{ x: transformBottom }}>Some nice words from my past employers</motion.span>
     </h2>
     <div className="container">
       <div className="mt-20">

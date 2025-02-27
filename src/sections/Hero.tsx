@@ -4,8 +4,7 @@ import Image from "next/image";
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 import heroImage from "@/assets/images/hero-image.jpeg";
 import Button from "@/components/Button";
-import SplitType from "split-type";
-import { useAnimate, motion, stagger, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import useTextRevealAnimation from "@/hooks/useTextRevealAnimation";
 
 const chevronDoubleDownSVG = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
@@ -34,9 +33,7 @@ const Hero: FC = () => {
             animate={{ opacity: 1 }}
             className="text-5xl md:text-6xl lg:text-7xl mt-40 md:mt-0"
             ref={titleScope}
-          >
-            Crafting digital experiences through code and creative design
-          </motion.h1>
+          >Building digital experiences through code, AI, and design</motion.h1>
           <div className="flex flex-col md:flex-row mt-10 items-start md:items-center gap-6">
             <motion.div initial={{ opacity: 0, y: '100%' }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: 1.75 }}>
               <Button variant="secondary" iconAfter={

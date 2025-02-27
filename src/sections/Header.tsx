@@ -18,10 +18,6 @@ const navItems = [
     href: "#testimonials",
   },
   {
-    label: "FAQs",
-    href: "#faqs",
-  },
-  {
     label: "Contact",
     href: "#contact",
   },
@@ -104,7 +100,7 @@ const Header: FC = () => {
             <div onClick={() => { setIsOpen(!isOpen) }} className="size-11 border bg-stone-200 border-stone-400 rounded-full inline-flex items-center justify-center">
               {menuIcon(topLineScope, bottomLineScope)}
             </div>
-            <Button variant="primary" className="hidden md:inline-flex">Contact Me</Button>
+            <Button variant="primary" className="hidden md:inline-flex" onClick={() => { window.open('mailto:cartertune@gmail.com', '_blank') }}>Contact Me</Button>
           </div>
         </div>
       </div>

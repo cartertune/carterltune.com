@@ -1,32 +1,31 @@
 import { FC } from "react";
 import Image from "next/image";
-import image1 from "@/assets/images/project-1.jpg";
-import image2 from "@/assets/images/project-2.jpg";
-import image3 from "@/assets/images/project-3.jpg";
-import image4 from "@/assets/images/project-4.jpg";
-import image5 from "@/assets/images/project-5.jpg";
+import image1 from "@/assets/images/try-multiply.png";
+import image2 from "@/assets/images/pietra.png";
+import image3 from "@/assets/images/withco.png";
+import image4 from "@/assets/images/troav.png";
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 const projects = [
   {
-    name: "Artisan Brew Co.",
+    name: "Try Multiply",
     image: image1,
+    link: "https://trymultiply.com/",
   },
   {
-    name: "Wavelength Studios",
+    name: "Pietra",
     image: image2,
+    link: "https://www.pietrastudio.com/",
   },
   {
-    name: "Nova Fitness",
+    name: "WithCo",
     image: image3,
+    link: "https://with.co/",
   },
   {
-    name: "Urban Plates",
+    name: "Troav",
     image: image4,
-  },
-  {
-    name: "Bloom Botanicals",
-    image: image5,
+    link: "https://www.instagram.com/troavdelivery/",
   },
 ];
 
@@ -40,8 +39,8 @@ const Projects: FC = () => {
     <div className="container !max-w-full">
       <h2 className="text-4xl md:text-7xl lg:text-8xl">Selected Works</h2>
       <div className="mt-10 md:mt-16 lg:mt-20">
-        {projects.map(({ name, image }) => {
-          return <a href='#' key={name} className="border-t last:border-b border-stone-400 border-dotted py-6 md:py-8 lg:py-10 flex flex-col relative group/project">
+        {projects.map(({ name, image, link }) => {
+          return <a href={link} target="_blank" rel="noopener noreferrer" key={name} className="border-t last:border-b border-stone-400 border-dotted py-6 md:py-8 lg:py-10 flex flex-col relative group/project">
             <div className="absolute bottom-0 left-0 w-full h-0 group-hover/project:h-full transition-all duration-500 bg-stone-300" />
             <div className="relative">
               <div className="aspect-video md:hidden">
